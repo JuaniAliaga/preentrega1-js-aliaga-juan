@@ -23,7 +23,12 @@ alert("Bienvenido a nuestro carrito, presione aceptar para comenzar");
 "Producto 2: $" + PRODUCTO2 + "\n" +
 "Producto 3: $" + PRODUCTO3 + "\n"));
 
-
+while (opcion <= 0 || opcion > 3) {
+    opcion = parseInt(prompt("Ingrese una opción válida" + "\n" +
+    "Producto 1: $" + PRODUCTO1 + "\n" +
+    "Producto 2: $" + PRODUCTO2 + "\n" +
+    "Producto 3: $" + PRODUCTO3 + "\n"));
+}
         
 switch (opcion) {
 
