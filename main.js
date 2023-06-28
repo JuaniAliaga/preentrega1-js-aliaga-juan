@@ -55,3 +55,5 @@ function ejecucionDePrograma() {
 
     alert("El total a pagar de su compra es de: $" + total + "\n" + "\n" + detalleFacturaString.join('\n'));
 }
+
+ejecucionDePrograma()
