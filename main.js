@@ -13,51 +13,38 @@ let opcion;
 let agregar;
 
 
-function calculo(total,producto,cantidad) {
-    return total + producto*cantidad
-}
 
 alert("Bienvenido a nuestro carrito, presione aceptar para comenzar");
 
+do {
+    const listaStringProductos = productos.map(
+        (product, index) => `
+                    ${index + 1}: ${product.nombre} precio: ${product.precio}
+`);
+    opcion = parseInt(
+        prompt("Que producto desea elegir?" + "\n" + listaStringProductos.join('\n')));
 
+    while (opcion <= 0 || opcion > productos.length || isNaN(opcion)) {
+        opcion = parseInt(
+            prompt("Ingrese una opción válida" + "\n" + listaStringProductos.join('\n')));
+    }
 
-    do{
-
-        opcion = parseInt (prompt("Bienvenido a nuestra tienda, que producto desea elegir?" + "\n" +
-"Producto 1: $" + PRODUCTO1 + "\n" +
-"Producto 2: $" + PRODUCTO2 + "\n" +
-"Producto 3: $" + PRODUCTO3 + "\n"));
-
-while (opcion <= 0 || opcion > 3) {
-    opcion = parseInt(prompt("Ingrese una opción válida" + "\n" +
-    "Producto 1: $" + PRODUCTO1 + "\n" +
-    "Producto 2: $" + PRODUCTO2 + "\n" +
-    "Producto 3: $" + PRODUCTO3 + "\n"));
-}
-        
-switch (opcion) {
-
-    case 1:
     cantidad = parseInt(prompt("Ingrese la cantidad que desea"));
-    total = calculo (total,PRODUCTO1,cantidad);
-        break;
 
-    case 2:
-    cantidad = parseInt(prompt("Ingrese la cantidad que desea"));
-    total = calculo(total,PRODUCTO2,cantidad)
-    break;
+    while (cantidad <= 0 || isNaN(cantidad)) {
+        cantidad = parseInt(prompt("Ingrese una cantidad valida"));
+    }
 
-    case 3:
-    cantidad = parseInt(prompt("Ingrese la cantidad que desea"));
-    total = calculo(total,PRODUCTO3,cantidad)
-        break;
-    
-    default:
-        alert("Ingrese una opcion correcta");
-}
-agregar = prompt("Deseas agregar mas productos al carrito? si/no")
+    detalleFactura.push({
+        nombre: productos[opcion - 1].nombre,
+        precioUnitario: productos[opcion - 1].precio,
+        cantidad,
+        subtotal: productos[opcion - 1].precio * cantidad
+    });
+
+    agregar = prompt("Deseas agregar mas productos al carrito? si/no").toLowerCase();
+
 } while (agregar == "si")
-
 
 
 
