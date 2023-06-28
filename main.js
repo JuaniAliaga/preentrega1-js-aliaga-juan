@@ -1,7 +1,12 @@
 
-const PRODUCTO1 = 25;
-const PRODUCTO2 = 50;
-const PRODUCTO3 = 75;
+const productos = [
+    { nombre: "Gomitas", precio: 25, marca: "Mogul" },
+    { nombre: "Chicle", precio: 50, marca: "Topline" },
+    { nombre: "Chocolate", precio: 75, marca: "Block" },
+    { nombre: "Galletitas", precio: 100, marca: "Toddy" }
+];
+
+const detalleFactura = [];
 let cantidad;
 let total = 0;
 let opcion;
